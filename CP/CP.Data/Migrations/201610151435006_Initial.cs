@@ -7,7 +7,7 @@ namespace CP.Data.Migrations
     {
         public override void Up()
         {
-            CreateTable(
+            /*CreateTable(
                 "dbo.Users",
                 c => new
                 {
@@ -30,7 +30,7 @@ namespace CP.Data.Migrations
                     Id = c.Int(nullable: false, identity: true),
                     NameRole = c.String(),
                 })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id);*/
         }
         
         public override void Down()
