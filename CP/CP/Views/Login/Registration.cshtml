@@ -1,0 +1,41 @@
+﻿@model CP.Web.Models.LoginModel
+@section header {
+    <title>Regestration</title>
+}
+
+<div class="Validate">
+    @Html.ValidationSummary()
+</div>
+<div class="MainAuth">
+    <div class="Auth">
+        @using (@Html.BeginForm("RegistrationPost", "Login", FormMethod.Post))
+        {
+            <div class="field-label">
+                @Html.Label("Enter your nicname")
+            </div>
+            <div class="field-edit">
+                @Html.EditorFor(lm => lm.UserName)
+            </div>
+            <div class="field-label">
+                @Html.Label("Choose your gender")
+            </div>
+            <div class="radio-button">
+                @Html.RadioButtonFor(lm => lm.Gender, "Male") Male
+                @Html.RadioButtonFor(lm => lm.Gender, "Female") Female
+            </div>
+            <div class="field-label">
+                @Html.Label("Enter your age")
+            </div>
+            <div class="field-edit">
+                @Html.EditorFor(lm => lm.Age)
+            </div>
+            <div class="field-label">
+                @Html.Label("Enter your password")
+            </div>
+            <div class="field-edit">
+                @Html.EditorFor(lm => lm.Password)
+            </div>
+            <input class="buttonAuth" type="submit" value="Registration"/>
+        }
+    </div>
+</div>

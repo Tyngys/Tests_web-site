@@ -1,0 +1,80 @@
+﻿@using CP.Data.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<User>
+@section header {
+    <title>Main page</title>
+}
+
+@if (User.IsInRole("admin"))
+{
+    <h2>Users</h2>
+    <table class="table_dark">
+        <tr>
+            <td>
+                @Html.Label("Nickname")
+            </td>
+            <td>
+                @Html.Label("Gender")
+            </td>
+            <td>
+                @Html.Label("Age")
+            </td>
+            <td>
+                @Html.Label("P_D")
+            </td>
+            <td>
+                @Html.Label("A_S")
+            </td>
+            <td>
+                @Html.Label("S_L")
+            </td>
+            <td>
+                @Html.Label("N_O")
+            </td>
+            <td>
+                @Html.Label("K")
+            </td>
+        </tr>
+        @foreach (User us in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => us.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => us.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => us.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => us.P_D)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => us.A_S)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => us.S_L)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => us.N_O)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => us.K)
+                </td>
+            </tr>
+        }
+    </table>
+    <br/>
+    <text>Page</text> @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) <text>from</text> @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("HomePage", new {page}));
+}
+else
+{
+    <ul class="linkOnTest">
+        <li class="testOne">
+            @Html.ActionLink("First test", "Test_One", "Home")
+        </li>
+    </ul>
+}

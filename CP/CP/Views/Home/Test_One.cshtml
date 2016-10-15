@@ -1,0 +1,23 @@
+﻿@model CP.Web.Models.AllTestModel
+@section header {
+    <title>Test_One</title>
+}
+<div>
+    @using (@Html.BeginForm("Test_One", "Home", FormMethod.Post))
+    {
+        for (int i = 0; i < Model.ArrayAllTests.Count; i++)
+        {
+            <div class="test">
+                @Model.ArrayAllTests[i].Question
+            </div>
+            <div class="radio-button">
+                <input type="radio" name="@Html.NameFor(q => q.ArrayAllTests[i].Answer)" id="question_[@i]_yes" value="Yes" /> Yes
+                <input type="radio" name="@Html.NameFor(q => q.ArrayAllTests[i].Answer)" id="question_[@i]_no" value="No"/> No
+            </div>
+        }
+        <br />
+        <input class="buttonCompleteFT" type="submit" value="Complete test" />
+        <br />
+        <br />
+    }
+</div>
