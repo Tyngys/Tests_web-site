@@ -10,7 +10,6 @@ namespace CP.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            this.ContextKey = "CP.Models.TestDb";
         }
 
         protected override void Seed(CP.Data.TestDb context)
