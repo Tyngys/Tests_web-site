@@ -10,7 +10,7 @@
             <div class="test">
                 @Model.ArrayAllTests[i].Question
             </div>
-            <div class="radio-button">
+            <div class="radio-button-test">
                 <input type="radio" name="@Html.NameFor(q => q.ArrayAllTests[i].Answer)" id="question_[@i]_yes" value="Yes" /> Yes
                 <input type="radio" name="@Html.NameFor(q => q.ArrayAllTests[i].Answer)" id="question_[@i]_no" value="No"/> No
             </div>
