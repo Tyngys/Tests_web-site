@@ -33,8 +33,16 @@ namespace CP.Business
 
         public void Dispose()
         {
-            this.User?.Dispose();
-            this.UserRepository?.Dispose();
+            if (this.UserRepository != null)
+            {
+                this.UserRepository.Dispose();
+                
+            }
+            if (this.User != null)
+            {
+                this.User.Dispose();
+
+            }
         }
     }
 }
