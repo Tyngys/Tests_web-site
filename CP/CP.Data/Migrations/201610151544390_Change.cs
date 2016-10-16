@@ -25,11 +25,11 @@ namespace CP.Data.Migrations
                         Gender = c.String(),
                         Age = c.Int(nullable: false),
                         Password = c.String(),
-                        P_D = c.Int(nullable: false),
-                        A_S = c.Int(nullable: false),
-                        S_L = c.Int(nullable: false),
-                        N_O = c.Int(nullable: false),
-                        K = c.Int(nullable: false),
+                        P_D = c.Int(nullable: true),
+                        A_S = c.Int(nullable: true),
+                        S_L = c.Int(nullable: true),
+                        N_O = c.Int(nullable: true),
+                        K = c.Int(nullable: true),
                         RoleId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
