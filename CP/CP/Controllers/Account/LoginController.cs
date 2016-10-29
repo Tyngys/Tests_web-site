@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using System.Web.Security;
 using CP.Business;
+using CP.Business.Abstract;
 using CP.Data.Models;
 using CP.Web.Models;
 using Microsoft.Practices.Unity;
@@ -13,6 +14,8 @@ namespace CP.Web.Controllers.Account
     {
         [Dependency]
         public IUserService UserService { get; set; }
+
+        public ISecondTestService SecondTest { get; set; }
 
 
         public ActionResult Login()
@@ -52,6 +55,8 @@ namespace CP.Web.Controllers.Account
                         Password = user.Password,
                         RoleId = 1
                     }))
+                   
+
                 {
                     return this.RedirectToAction("HomePage", "Home");
                 }

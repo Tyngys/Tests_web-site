@@ -5,17 +5,17 @@ using System.Web;
 
 namespace CP.Web.Models
 {
-    public class TestModel
+    public class TestOne
     {
        public string Question { get; set; }
        public string Answer { get; set; }
 
-        public TestModel()
+        public TestOne()
         {
 
         }
 
-        public TestModel(string question)
+        public TestOne(string question)
         {
             this.Answer = "";
             this.Question = question;

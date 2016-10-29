@@ -22,7 +22,8 @@ namespace CP.DependencyResolver
             this.Container.RegisterType<DbContext, TestDb>();
             this.Container.RegisterType<IRoleService, RoleService>();
             this.Container.RegisterType<IUserService, UserService>();
-            this.Container.RegisterType<ITestService, TestService>();
+            this.Container.RegisterType<ITestOneService, TestOneService>();
+            this.Container.RegisterType<ISecondTestService, SecondTestService>();
         }
     }
 }

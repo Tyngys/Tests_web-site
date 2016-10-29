@@ -49,11 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201610151544390_Change.cs" />
-    <Compile Include="Migrations\201610151544390_Change.Designer.cs">
-      <DependentUpon>201610151544390_Change.cs</DependentUpon>
+    <Compile Include="Migrations\201610251459340_AddSecondTest.cs" />
+    <Compile Include="Migrations\201610251459340_AddSecondTest.Designer.cs">
+      <DependentUpon>201610251459340_AddSecondTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\SecondTest.cs" />
     <Compile Include="TestDb.cs" />
     <Compile Include="TestDbInitializer.cs" />
     <Compile Include="EfRepository.cs" />
@@ -68,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610151544390_Change.resx">
-      <DependentUpon>201610151544390_Change.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610251459340_AddSecondTest.resx">
+      <DependentUpon>201610251459340_AddSecondTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

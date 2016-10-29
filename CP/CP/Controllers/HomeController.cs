@@ -9,32 +9,39 @@ namespace CP.Web.Controllers
 {
     public class HomeController : Controller
     {
+       
         [Dependency]
         public IUserService Users { get; set; }
         [Dependency]
-        public ITestService Test { get; set; }
+        public ITestOneService TestOne { get; set; }
+
+        
 
         [Authorize(Roles = "user,admin")]
         public ActionResult HomePage(int? page)
         {
             if (this.User.IsInRole("admin"))
             {
-                int pageSize = 3;
+                UsersInfo userInfo = new UsersInfo(this.Users.GetAllUsers());
+                this.ViewBag.Averg = userInfo.ArrayAverg;
+                this.ViewBag.AvergMiss = userInfo.ArrayArgvMiss;
+                this.ViewBag.ErrAvergMath = userInfo.ArrayStErrorAvergMath;
+                int pageSize = 10;
                 int pageNumber = (page ?? 1);
-                return this.View("HomePage", this.Users.GetAllUsers().ToPagedList(pageNumber, pageSize));
+                return this.View("HomePage", userInfo.InfoList.ToPagedList(pageNumber, pageSize));
             }
             return this.View("HomePage");
         }
         [HttpGet]
         public ActionResult Test_One()
         {
-            return this.View("Test_One",new AllTestModel());
+            return this.View("Test_One",new TestOneModel());
         }
 
         [HttpPost]
-        public ActionResult Test_One(AllTestModel model)
+        public ActionResult Test_One(TestOneModel model)
         {
-            this.Test.GetMarks(model.GetMarksFromAnswer(model),this.User.Identity.Name);
+            this.TestOne.GetMarks(model.GetMarksFromAnswer(model),this.User.Identity.Name);
             return this.View("HomePage");
         }
     }

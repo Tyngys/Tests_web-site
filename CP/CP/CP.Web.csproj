@@ -160,13 +160,17 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\Account\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SecondTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AllTestModel.cs" />
+    <Compile Include="Models\TestOneModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\TestModel.cs" />
+    <Compile Include="Models\TestOne.cs" />
+    <Compile Include="Models\TestSecond.cs" />
+    <Compile Include="Models\TestSecondModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\UsersInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +182,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Home\Test_One.cshtml" />
+    <Content Include="Views\SecondTest\Test_Second.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

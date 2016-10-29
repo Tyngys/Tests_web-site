@@ -66,12 +66,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IRoleService.cs" />
+    <Compile Include="Abstract\ISecondTestService.cs" />
     <Compile Include="Abstract\IServiceBase.cs" />
-    <Compile Include="Abstract\ITestService.cs" />
+    <Compile Include="Abstract\ITestOneService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleService.cs" />
-    <Compile Include="TestService.cs" />
+    <Compile Include="SecondTestService.cs" />
+    <Compile Include="TestOneService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>

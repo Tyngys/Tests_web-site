@@ -1,6 +1,7 @@
-﻿@using CP.Data.Models
+﻿@using CP.Web.Models
 @using PagedList.Mvc;
-@model PagedList.IPagedList<User>
+@model PagedList.IPagedList<UserModel>
+
 @section header {
     <title>Main page</title>
 }
@@ -35,7 +36,7 @@
                 @Html.Label("K")
             </td>
         </tr>
-        @foreach (User us in Model)
+        @foreach (UserModel us in Model)
         {
             <tr>
                 <td>
@@ -65,16 +66,50 @@
             </tr>
         }
     </table>
-    <br/>
     <text>Page</text> @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) <text>from</text> @Model.PageCount
-
     @Html.PagedListPager(Model, page => Url.Action("HomePage", new {page}));
+
+    <table class="table_dark">
+        <tr>
+            <td>P_D</td>
+        </tr>
+        <tr>
+            <td>A_S</td>
+        </tr>
+        <tr>
+            <td>N_O</td>
+        </tr>
+        <tr>
+            <td>Averg value</td>
+            <td>Averg miss value</td>
+            <td>Error averg math value</td>
+        </tr>
+        <tr>
+            @foreach (double value in ViewBag.Averg)
+            {
+                <td>@value</td>
+            }
+            <td>
+            @foreach (double value in ViewBag.AvergMiss)
+            {
+                <td>@value</td>
+            }
+
+            @foreach (double value in ViewBag.ErrAvergMath)
+            {
+                <td>@value</td>
+            }
+        </tr>
+    </table>
 }
 else
 {
     <ul class="linkOnTest">
         <li class="testOne">
             @Html.ActionLink("First test", "Test_One", "Home")
+        </li>
+        <li class="testOne">
+            @Html.ActionLink("Second test", "Test_Second", "SecondTest")
         </li>
     </ul>
 }

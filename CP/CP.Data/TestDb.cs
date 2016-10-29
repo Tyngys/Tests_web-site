@@ -13,6 +13,7 @@ namespace CP.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<SecondTest> SecondTest { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -20,6 +21,10 @@ namespace CP.Data
                 .HasMany(u => u.Users)
                 .WithRequired(r => r.Role)
                 .HasForeignKey(f => f.RoleId);
+
+            modelBuilder.Entity<SecondTest>()
+                .HasRequired(t => t.User)
+                .WithOptional(t => t.SecondTest);
         }
     }
 }

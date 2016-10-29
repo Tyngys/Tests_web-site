@@ -1,13 +1,19 @@
-﻿using System.Data.Entity.Migrations;
-using Microsoft.Practices.Unity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using CP.Business.Abstract;
 using CP.Data;
 using CP.Data.Models;
+using Microsoft.Practices.Unity;
+
 namespace CP.Business
 {
-    public class TestService : ITestService
+    public class SecondTestService : ISecondTestService
     {
-        public TestService(IRepository<User> userRepository)
+        public SecondTestService(IRepository<User> userRepository)
         {
             this.UserRepository = userRepository;
         }
@@ -16,17 +22,14 @@ namespace CP.Business
         public IUserService User { get; set; }
         public IRepository<User> UserRepository { get; set; }
 
-        public void GetMarks(int[] marks, string name)
+        public void GetMark(int mark, string name)
         {
-           var user = this.User.GetUser(name);
-            user.P_D = marks[0];
-            user.A_S = marks[1];
-            user.S_L = marks[2];
-            user.N_O = marks[3];
-            user.K = marks[4];
+            User user = this.User.GetUser(name);
+            
+
             using (TestDb db = new TestDb())
             {
-                db.Users.AddOrUpdate(user);
+                db.SecondTest.AddOrUpdate(new SecondTest() {Id = user.Id, Mark = mark });
                 db.SaveChanges();
             }
         }
@@ -36,7 +39,7 @@ namespace CP.Business
             if (this.UserRepository != null)
             {
                 this.UserRepository.Dispose();
-                
+
             }
             if (this.User != null)
             {

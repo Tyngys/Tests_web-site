@@ -1,0 +1,25 @@
+﻿@model CP.Web.Models.TestSecondModel
+
+@section header {
+    <title>Second test</title>
+}
+<label class="SecondTestInfo">Тест содержит ряд заданий. Ответ на задание состоит из букв или слов. Количество точек в задании обозначает количество букв в пропущенном слове.</label>
+<div class="SecondTest">
+    @using (Html.BeginForm("Test_Second", "SecondTest", FormMethod.Post))
+    {
+        for (int i = 0; i < Model.ListSecondTest.Count(); i++)
+        {
+            <div class="test2">
+                @Model.ListSecondTest[i].Question
+            </div>
+            <div class="Test2_TextBox">
+                <input type="text" id="Question[@i]_TextBox" name="@Html.NameFor(q => q.ListSecondTest[i].Answer)" value=""/>
+                <input type="hidden" id="Question[@i]_RightAnswer" name="@Html.NameFor(q => q.ListSecondTest[i].RightAnswer)" value="@Model.ListSecondTest[i].RightAnswer" />
+            </div>
+        }
+        <br/>
+        <input class="buttonCompleteFT" type="submit" value="Complete test"/>
+        <br/>
+        <br/>
+    }
+</div>

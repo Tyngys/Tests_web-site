@@ -7,13 +7,13 @@ namespace CP.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Change : IMigrationMetadata
+    public sealed partial class AddSecondTest : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Change));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddSecondTest));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610151544390_Change"; }
+            get { return "201610251459340_AddSecondTest"; }
         }
         
         string IMigrationMetadata.Source
