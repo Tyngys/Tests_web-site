@@ -34,7 +34,7 @@ namespace CP.Business
             if (!this.UserRepository.Table.Any(u => u.UserName == user.UserName))
             {
                 User item = new User {UserName = user.UserName,Gender = user.Gender,Age = user.Age, Password = user.Password, RoleId = 1};
-                item.SecondTest = new SecondTest() { Mark = 0 };
+                item.SecondTest = new SecondTest() {Id = user.Id, Mark = 0 };
                 this.UserRepository.Insert(item);
                 return true;
             }
