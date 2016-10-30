@@ -1,6 +1,6 @@
-﻿@using CP.Web.Models
+﻿@using CP.Data.Models
 @using PagedList.Mvc;
-@model PagedList.IPagedList<UserModel>
+@model PagedList.IPagedList<User>
 
 @section header {
     <title>Main page</title>
@@ -11,9 +11,6 @@
     <h2>Users</h2>
     <table class="table_dark">
         <tr>
-            <td>
-                @Html.Label("Nickname")
-            </td>
             <td>
                 @Html.Label("Gender")
             </td>
@@ -35,13 +32,13 @@
             <td>
                 @Html.Label("K")
             </td>
+            <td>
+                Mark for second test
+            </td>
         </tr>
-        @foreach (UserModel us in Model)
+        @foreach (User us in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(m => us.UserName)
-                </td>
                 <td>
                     @Html.DisplayFor(m => us.Gender)
                 </td>
@@ -63,6 +60,9 @@
                 <td>
                     @Html.DisplayFor(m => us.K)
                 </td>
+                <td>
+                    @us.SecondTest.Mark
+                </td>
             </tr>
         }
     </table>
@@ -71,33 +71,45 @@
 
     <table class="table_dark">
         <tr>
+            <td></td>
             <td>P_D</td>
-        </tr>
-        <tr>
             <td>A_S</td>
-        </tr>
-        <tr>
             <td>N_O</td>
+            <td>S_L</td>
+            <td>K</td>
+            <td>Analiz for the second test</td>
         </tr>
         <tr>
-            <td>Averg value</td>
-            <td>Averg miss value</td>
-            <td>Error averg math value</td>
-        </tr>
-        <tr>
+            <td>
+                Среднее значение
+            </td>
             @foreach (double value in ViewBag.Averg)
             {
-                <td>@value</td>
+                <td>
+                    @Math.Round(value,2)
+                </td>
             }
+        </tr>
+        <tr>
             <td>
+                Стандартное отклонение
+            </td>
             @foreach (double value in ViewBag.AvergMiss)
             {
-                <td>@value</td>
+                <td>
+                    @Math.Round(value, 2)
+                </td>
             }
-
+        </tr>
+        <tr>
+            <td>
+                Стандартная ошибка средней арифметической
+            </td>
             @foreach (double value in ViewBag.ErrAvergMath)
             {
-                <td>@value</td>
+                <td>
+                    @Math.Round(value, 2)
+                </td>
             }
         </tr>
     </table>
