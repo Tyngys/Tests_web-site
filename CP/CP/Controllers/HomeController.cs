@@ -9,13 +9,11 @@ namespace CP.Web.Controllers
 {
     public class HomeController : Controller
     {
-       
         [Dependency]
         public IUserService Users { get; set; }
         [Dependency]
         public ITestOneService TestOne { get; set; }
 
-        
 
         [Authorize(Roles = "user,admin")]
         public ActionResult HomePage(int? page)

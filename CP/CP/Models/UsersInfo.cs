@@ -16,12 +16,7 @@ namespace CP.Web.Models
 
         public UsersInfo(List<User> listUsers)
         {
-            this.InfoList = listUsers;
-            /*foreach (User user in listUsers)
-            {
-                this.InfoList.Add(new UserModel() {A_S = user.A_S, Age = user.Age, Gender = user.Gender, P_D = user.P_D, UserName = user.UserName, K = user.K, N_O = user.N_O, S_L = user.S_L});
-            }*/
-           
+            this.InfoList = listUsers;           
             this.GetAverg(listUsers);
             this.GetAvergMiss(listUsers);
             this.GetStErrorAvergMath(listUsers);
