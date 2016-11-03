@@ -45,11 +45,11 @@ namespace CP.Web.Models
         {
             for (int i = 0; i < listUser.Count; i++)
             {
-                this.ArrayArgvMiss[0] += this.ArrayAverg[0] / Math.Sqrt(listUser[i].P_D);
-                this.ArrayArgvMiss[1] += this.ArrayAverg[1] / Math.Sqrt(listUser[i].A_S);
-                this.ArrayArgvMiss[2] += this.ArrayAverg[2] / Math.Sqrt(listUser[i].N_O);
-                this.ArrayArgvMiss[3] += this.ArrayAverg[3] / Math.Sqrt(listUser[i].S_L);
-                this.ArrayArgvMiss[4] += this.ArrayAverg[4] / Math.Sqrt(listUser[i].K);
+                this.ArrayArgvMiss[0] += this.ArrayAverg[0] / Math.Sqrt(listUser.Count);
+                this.ArrayArgvMiss[1] += this.ArrayAverg[1] / Math.Sqrt(listUser.Count);
+                this.ArrayArgvMiss[2] += this.ArrayAverg[2] / Math.Sqrt(listUser.Count);
+                this.ArrayArgvMiss[3] += this.ArrayAverg[3] / Math.Sqrt(listUser.Count);
+                this.ArrayArgvMiss[4] += this.ArrayAverg[4] / Math.Sqrt(listUser.Count);
             }
         }
 

@@ -18,6 +18,5 @@ D:\Goldus_Sasha\CP\CP.Data\bin\Debug\EntityFramework.xml
 D:\Goldus_Sasha\CP\CP.Data\bin\Debug\EntityFramework.SqlServer.xml
 D:\Goldus_Sasha\CP\CP.Data\obj\Debug\CP.Data.dll
 D:\Goldus_Sasha\CP\CP.Data\obj\Debug\CP.Data.pdb
-D:\Goldus_Sasha\CP\CP.Data\obj\Debug\CP.Data.csprojResolveAssemblyReference.cache
 D:\Goldus_Sasha\CP\CP.Data\obj\Debug\CP.Data.Migrations.AddSecondTest.resources
 D:\Goldus_Sasha\CP\CP.Data\obj\Debug\CP.Data.csproj.GenerateResource.Cache
