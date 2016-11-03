@@ -10,9 +10,9 @@ namespace CP.Web.Models
     {
         public List<User> InfoList { get; set; } = new List<User>();
 
-        public double[] ArrayAverg { get; set; } = new double[6];
-        public double[] ArrayArgvMiss { get; set; } = new double[6];
-        public double[] ArrayStErrorAvergMath { get; set; } = new double[6];
+        public double[] ArrayAverg { get; set; } = new double[5];
+        public double[] ArrayArgvMiss { get; set; } = new double[5];
+        public double[] ArrayStErrorAvergMath { get; set; } = new double[5];
 
         public UsersInfo(List<User> listUsers)
         {
@@ -24,7 +24,7 @@ namespace CP.Web.Models
 
         public void GetAverg(List<User> listUser)
         {
-            double[] arraySum = new double[6];
+            double[] arraySum = new double[5];
             for (int i = 0; i < listUser.Count; i++)
             {
                 arraySum[0] += listUser[i].P_D;
@@ -32,7 +32,6 @@ namespace CP.Web.Models
                 arraySum[2] += listUser[i].N_O;
                 arraySum[3] += listUser[i].S_L;
                 arraySum[4] += listUser[i].K;
-                arraySum[5] += listUser[i].SecondTest.Mark;
             }
             
             this.ArrayAverg[0] = arraySum[0] / listUser.Count;
@@ -40,19 +39,17 @@ namespace CP.Web.Models
             this.ArrayAverg[2] = arraySum[2] / listUser.Count;
             this.ArrayAverg[3] = arraySum[3] / listUser.Count;
             this.ArrayAverg[4] = arraySum[4] / listUser.Count;
-            this.ArrayAverg[5] = arraySum[5] / listUser.Count;
         }
 
         public void GetAvergMiss(List<User> listUser)
         {
             for (int i = 0; i < listUser.Count; i++)
             {
-                this.ArrayArgvMiss[0] += Math.Abs(listUser[i].P_D - this.ArrayAverg[0]) / listUser.Count;
-                this.ArrayArgvMiss[1] += Math.Abs(listUser[i].A_S - this.ArrayAverg[1]) / listUser.Count;
-                this.ArrayArgvMiss[2] += Math.Abs(listUser[i].N_O - this.ArrayAverg[2]) / listUser.Count;
-                this.ArrayArgvMiss[3] += Math.Abs(listUser[i].S_L - this.ArrayAverg[3]) / listUser.Count;
-                this.ArrayArgvMiss[4] += Math.Abs(listUser[i].K - this.ArrayAverg[4]) / listUser.Count;
-                this.ArrayArgvMiss[5] += Math.Abs(listUser[i].SecondTest.Mark - this.ArrayAverg[5]) / listUser.Count;
+                this.ArrayArgvMiss[0] += this.ArrayAverg[0] / Math.Sqrt(listUser[i].P_D);
+                this.ArrayArgvMiss[1] += this.ArrayAverg[1] / Math.Sqrt(listUser[i].A_S);
+                this.ArrayArgvMiss[2] += this.ArrayAverg[2] / Math.Sqrt(listUser[i].N_O);
+                this.ArrayArgvMiss[3] += this.ArrayAverg[3] / Math.Sqrt(listUser[i].S_L);
+                this.ArrayArgvMiss[4] += this.ArrayAverg[4] / Math.Sqrt(listUser[i].K);
             }
         }
 
@@ -65,7 +62,6 @@ namespace CP.Web.Models
                 this.ArrayStErrorAvergMath[2] += Math.Sqrt(Math.Pow(listUser[i].N_O - this.ArrayAverg[2], 2) / listUser.Count);
                 this.ArrayStErrorAvergMath[3] += Math.Sqrt(Math.Pow(listUser[i].S_L - this.ArrayAverg[3], 2) / listUser.Count);
                 this.ArrayStErrorAvergMath[4] += Math.Sqrt(Math.Pow(listUser[i].K - this.ArrayAverg[4], 2) / listUser.Count);
-                this.ArrayStErrorAvergMath[5] += Math.Sqrt(Math.Pow(listUser[i].SecondTest.Mark - this.ArrayAverg[5], 2) / listUser.Count);
             }
         }
     }
