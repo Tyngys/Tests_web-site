@@ -45,24 +45,21 @@ namespace CP.Web.Models
         {
             for (int i = 0; i < listUser.Count; i++)
             {
-                this.ArrayArgvMiss[0] += this.ArrayAverg[0] / Math.Sqrt(listUser.Count);
-                this.ArrayArgvMiss[1] += this.ArrayAverg[1] / Math.Sqrt(listUser.Count);
-                this.ArrayArgvMiss[2] += this.ArrayAverg[2] / Math.Sqrt(listUser.Count);
-                this.ArrayArgvMiss[3] += this.ArrayAverg[3] / Math.Sqrt(listUser.Count);
-                this.ArrayArgvMiss[4] += this.ArrayAverg[4] / Math.Sqrt(listUser.Count);
+                this.ArrayArgvMiss[0] += Math.Abs(this.ArrayAverg[0] - listUser[i].P_D) / listUser.Count;
+                this.ArrayArgvMiss[1] += Math.Abs(this.ArrayAverg[1] - listUser[i].A_S) / listUser.Count;
+                this.ArrayArgvMiss[2] += Math.Abs(this.ArrayAverg[2] - listUser[i].N_O) / listUser.Count;
+                this.ArrayArgvMiss[3] += Math.Abs(this.ArrayAverg[3] - listUser[i].S_L) / listUser.Count;
+                this.ArrayArgvMiss[4] += Math.Abs(this.ArrayAverg[4] - listUser[i].K) / listUser.Count;
             }
         }
 
         public void GetStErrorAvergMath(List<User> listUser)
         {
-            for (int i = 0; i < listUser.Count; i++)
-            {
-                this.ArrayStErrorAvergMath[0] += Math.Sqrt(Math.Pow(listUser[i].P_D - this.ArrayAverg[0], 2) / listUser.Count);
-                this.ArrayStErrorAvergMath[1] += Math.Sqrt(Math.Pow(listUser[i].A_S - this.ArrayAverg[1], 2) / listUser.Count);
-                this.ArrayStErrorAvergMath[2] += Math.Sqrt(Math.Pow(listUser[i].N_O - this.ArrayAverg[2], 2) / listUser.Count);
-                this.ArrayStErrorAvergMath[3] += Math.Sqrt(Math.Pow(listUser[i].S_L - this.ArrayAverg[3], 2) / listUser.Count);
-                this.ArrayStErrorAvergMath[4] += Math.Sqrt(Math.Pow(listUser[i].K - this.ArrayAverg[4], 2) / listUser.Count);
-            }
+                this.ArrayStErrorAvergMath[0] = this.ArrayArgvMiss[0] / Math.Sqrt(listUser.Count);
+                this.ArrayStErrorAvergMath[1] = this.ArrayArgvMiss[1] / Math.Sqrt(listUser.Count);
+                this.ArrayStErrorAvergMath[2] = this.ArrayArgvMiss[2] / Math.Sqrt(listUser.Count);
+                this.ArrayStErrorAvergMath[3] = this.ArrayArgvMiss[3] / Math.Sqrt(listUser.Count);
+                this.ArrayStErrorAvergMath[4] = this.ArrayArgvMiss[4] / Math.Sqrt(listUser.Count);
         }
     }
 }
